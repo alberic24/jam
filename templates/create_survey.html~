@@ -1,0 +1,11 @@
+<form action="/create_survey" method="post">
+    {% for survey in surveys %}
+    <h3>{{ survey.question }}</h3>
+    {% for option_index in range(len(survey.options)) %}
+    {% set option = survey.options[option_index] %}
+    <input type="radio" id="question_{{ loop.index }}" name="question_{{ loop.index }}" value="{{ option_index }}">
+    <label for="question_{{ loop.index }}">{{ option }}</label><br>
+    {% endfor %}
+    {% endfor %}
+    <input type="submit" value="Soumettre">
+</form>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Accueil</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='color.css') }}">
+    <style>
+        body {
+            background-image: url('{{ url_for('static', filename='alb.webp') }}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        /* Vos autres styles ici */
+    </style>
+</head>
+<body>
+    <h1>Bienvenue sur notre site de sondage sur le football !</h1>
+    <p><a href="/survey">CLIQUER ICI POUR COMMENCER LE SONDAGE</a></p>
+    <h2>Questions du sondage :</h2>
+    <ul>
+        {% for survey in surveys %}
+        <li>{{ survey.question }}</li>
+        <ul>
+            {% for option in survey.options %}
+            <li>{{ option }}</li>
+            {% endfor %}
+        </ul>
+        {% endfor %}
+    </ul>
+</body>
+</html>

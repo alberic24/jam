@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sondage</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='color.css') }}">
+    <style>
+        body {
+            background-image: url('{{ url_for('static', filename='alb.webp') }}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sondage</h1>
+    <form action="/survey" method="post">
+        {% for question in questions %}
+        <h3>{{ question['question'] }}</h3>
+        <ul>
+            {% for option in question['options'] %}
+            <li>
+                <input type="radio" id="{{ question['question'] }}_{{ loop.index }}" name="{{ question['question'] }}" value="{{ option }}">
+                <label for="{{ question['question'] }}_{{ loop.index }}">{{ option }}</label>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endfor %}
+        <input type="submit" value="Soumettre">
+    </form>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Accueil</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='color.css') }}">
+    <style>                                                                                                                                                                                                                                  
+        body {
+            background-image: url('{{ url_for('static', filename='alb.webp') }}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: white;
+        }
+
+        div#message {
+            font-size: 2em;
+            color: black;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Bienvenue sur notre site de sondage sportif</h1>
+    <h1>EVALUE TA CULTURE ET CULTIVE TOI ! </h1>
+    <div id="message">
+        <p>PRÊT POUR UN NOUVEAU SONDAGE ?</p>
+        <a href="/survey" style="color: black; text-decoration: none;">CLIQUEZ ICI POUR COMMENCER</a>
+    </div>
+</body>
+</html>
